@@ -7,7 +7,7 @@ int main() {
     int data;
     printMenu();
     while (1) {
-        printf("请输入对应数字(1-7):");
+        printf("请输入对应数字(1-9):");
         scanf_s("%d", &a);
         getchar(); // 清除输入缓冲区中的换行符  
         switch (a) {
@@ -48,7 +48,6 @@ int main() {
             if (list != NULL) {
                 DeleteLinklist(list);
                 printf("链表已删除\n");
-                list = NULL; // 释放链表后，将指针设为NULL  
             }
             else {
                 printf("链表为空，无需删除\n");
@@ -78,7 +77,16 @@ int main() {
                 printf("请先创建链表\n");
             }
             break;
-        case 7:
+        case 8:
+            if (list != NULL && list->head != NULL)
+            {
+                reversal(list);
+                printf("反转成功");
+            }else {
+                printf("链表不存在或只有一个结点，无需反转。\n");
+            }
+            break;
+        case 9:
             if (list != NULL) {
                 DeleteLinklist(list);
                 list = NULL; // 退出前确保释放链表内存  

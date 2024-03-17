@@ -9,6 +9,11 @@ Linklist* createLinklist() {
     if (list) {
         list->head = NULL;
     }
+    else
+    {
+        printf("链表创建失败！");
+        exit(EXIT_FAILURE);
+    }
     return list;
 }
 
@@ -75,6 +80,28 @@ Node* findMiddle(Linklist* list) {
     }
     return slow;
 }
+Linklist* reversal(Linklist* list) {
+    if (list == NULL || list->head == NULL || list->head->next == NULL) {
+        // 空链表或只有一个节点的链表，无需反转  
+        return list;
+    }
+
+    Node* prev = NULL;  // 用于指向前一个节点的指针  
+    Node* cur = list->head; // 当前节点  
+
+    while (cur != NULL) {
+        Node* nextTemp = cur->next; // 保存下一个节点  
+        cur->next = prev; // 反转当前节点的next指针  
+        prev = cur; // 将prev向前移动一步  
+        cur = nextTemp; // 将cur向前移动一步  
+    }
+
+    // 反转完成后，prev会指向新的头节点  
+    list->head = prev;
+
+    return list;
+}
+
 
 // 打印菜单  
 void printMenu() {
@@ -84,7 +111,8 @@ void printMenu() {
     printf("3.打印链表\n");
     printf("4.删除该链表\n");
     printf("5.删除某个节点\n");
-    printf("奇偶互换(尚未实现）\n");
     printf("6.找到链表中点\n");
-    printf("7.退出\n");
+    printf("7.奇偶互换（还不太行）\n");
+    printf("8.反转链表\n");
+    printf("9.退出\n");
 }

@@ -2,12 +2,12 @@
 #define ADT_H 
 #include <stdio.h>
 #include <stdlib.h>
-
+//定义一个结点
 typedef struct Node {
     int data;
     struct Node* next;
 } Node;
-
+//定义一个链表
 typedef struct Linklist {
     Node* head;
 } Linklist;
@@ -20,7 +20,9 @@ void DeleteLinklist(Linklist* list);
 //删除某个结点
 void deleteNode(Linklist* list, int data);
 //奇偶互换
-//Node* oddEvenList(Node* head);
+//Linklist* oddevenswap(Linklist* list);
+//反转链表
+Linklist* reversal(Linklist* list);
 //找到链表的中点
 Node* findMiddle(Linklist* list);
 // 打印菜单  
